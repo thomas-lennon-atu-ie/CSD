@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Globalization;
+using System.Linq;
 using System.Text;
-using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 
 namespace Enigma
 {
@@ -35,7 +35,7 @@ namespace Enigma
         ///  
         /// <returns>An encoded string.</returns>
         /// 
-        public static string Encode(string message, int incrementNumber, List<string> rotors)   
+        public static string Encode(string message, int incrementNumber, List<string> rotors)
         {
             // TO DO - add your implementation
             throw new NotImplementedException();
@@ -160,3 +160,4 @@ namespace Enigma
         }
     }
 }
+
