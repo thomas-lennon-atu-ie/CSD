@@ -11,30 +11,30 @@ The outline process of encoding and decoding a message is as follows:
 To encrypt the string "ABCD":  
 Step 1: apply CAESAR shift with the incrementing number (let us use 4 in this example)  
 "A" + (4+0) = "E"  
-"B" + (4+1) = "F"  
-"C" + (4+2) = "G"  
-"D" + (4+3) = "H"  
+"B" + (4+1) = "G"  
+"C" + (4+2) = "I"  
+"D" + (4+3) = "K"  
 
-"ABCD" becomes "EFGH"
+"ABCD" becomes "EGIK"
 
 Step 2 : translate trough first rotor (let’s say "BDFHJLCPRTXVZNYEIWGAKMUSQO" here)  
  A B C D E F G H I J K L M N O P Q R S T U V W X Y Z  
  B D F H J L C P R T X V Z N Y E I W G A K M U S Q O  
 
-"EFGH" becomes "JLCP"
+"EGIK" becomes "JCRX"
 
 Step 3 : translate trough second rotor (let’s say "AJDKSIRUXBLHWTMCQGZNPYFVOE" here)  
 A B C D E F G H I J K L M N O P Q R S T U V W X Y Z  
 A J D K S I R U X B L H W T M C Q G Z N P Y F V O E  
 
-"JLCP" becomes "BHDC"  
+"JCRX" becomes "BDGV"  
 
 Step 4 : translate trough third rotor (let’s say "EKMFLGDQVZNTOWYHXUSPAIBRCJ" here)  
 A B C D E F G H I J K L M N O P Q R S T U V W X Y Z  
 E K M F L G D Q V Z N T O W Y H X U S P A I B R C J  
 
-"BHDC" becomes"KQFM"
-So after those 4 steps "ABCD" is encrypted to "KQFM"
+"BDGV" becomes"KFDI"
+So after those 4 steps "ABCD" is encrypted to "KFDI"
 
 ### __Decryption__  
 
@@ -42,27 +42,27 @@ Step 1 : translate from third rotor (let’s say "EKMFLGDQVZNTOWYHXUSPAIBRCJ" he
 E K M F L G D Q V Z N T O W Y H X U S P A I B R C J  
 A B C D E F G H I J K L M N O P Q R S T U V W X Y Z  
 
-"KQFM" becomes"BHDC"  
+"KFDI" becomes"BDGV"  
 
 Step 2 : translate from second rotor (let’s say "AJDKSIRUXBLHWTMCQGZNPYFVOE" here)  
 A J D K S I R U X B L H W T M C Q G Z N P Y F V O E  
 A B C D E F G H I J K L M N O P Q R S T U V W X Y Z  
 
-"BHDC" becomes "JLCP"  
+"BDGV" becomes "JCRX"  
 
 Step 3 : translate from first rotor (let’s say "BDFHJLCPRTXVZNYEIWGAKMUSQO" here)  
 B D F H J L C P R T X V Z N Y E I W G A K M U S Q O  
 A B C D E F G H I J K L M N O P Q R S T U V W X Y Z  
 
-"JLCP" becomes "EFGH"  
+"JCRX" becomes "EGIK"  
 
 Step 4: undo CAESAR with the incrementing number (let’s say 4 here)  
 "E" - (4+0) = "A"  
-"F" - (4+1) = "B"  
-"G" - (4+2) = "C"  
-"H" - (4+3) = "D"  
+"G" - (4+1) = "B"  
+"I" - (4+2) = "C"  
+"K" - (4+3) = "D"  
 "EFGH" becomes "ABCD"  
-So after those 4 steps "KQFM" is decrypted to "ABCD"  
+So after those 4 steps "KFDI" is decrypted to "ABCD"  
 
 ## __Note__  
 
