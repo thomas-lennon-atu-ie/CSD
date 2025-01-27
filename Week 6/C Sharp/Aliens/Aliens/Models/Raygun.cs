@@ -19,15 +19,30 @@ namespace Aliens.Models
 
         public Raygun(int mChrg, int cChrg)
         {
-            //TODO: Construct the Raygun object and initialise the attributes
+            MaxCharge = mChrg;
+            CurrentCharge = Math.Clamp(cChrg, 0, MaxCharge);
         }
 
         // Methods
-        //TODO: Implement appropriate getters and setters for the class
+        
 
         public void FireAt(Alien a)
         {
-            //TODO: Implement the method
+            {
+                if (IsCharged()) // Check if the gun has charge
+                {
+                    CurrentCharge--; // reduce by 1
+
+                    if (a.Dodging)
+                    {
+                        a.Miss(); // dodged
+                    }
+                    else
+                    {
+                        a.Hit(); //hit
+                    }
+                }
+            }
             /*The gun should only fire if it is charged. Firing the gun will reduce the charge by 1. If the alien isDodging
             * alien.miss() should be called, otherwise alien.hit */
 
@@ -35,21 +50,21 @@ namespace Aliens.Models
 
         public void Recharge()
         {
-            //TODO: Implement the method
-            /*Increases the current charge by 1*/
+            if (!IsFullyCharged())
+            {
+                CurrentCharge++;  //increase by1
+            }
         }
 
         public bool IsCharged()
         {
-            //TODO: Implement the method
-            /*Returns true if the gun has a charge*/
+            return CurrentCharge > 0;
 
         }
 
         public bool IsFullyCharged()
         {
-            //TODO: Implement the method
-            /*Returns true if the gun is fully charged*/
+            return CurrentCharge == MaxCharge;
         }
 
 
